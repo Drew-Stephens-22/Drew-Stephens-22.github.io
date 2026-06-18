@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Drew Stephens<span class="logo-bracket">/&gt;</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"          class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#projects"      class="nav-link"        data-section="projects">Projects</a></li>
+        <li><a href="#resume"        class="nav-link"        data-section="resume">Résumé &amp; Certs</a></li>
+        <li><a href="#contact"       class="nav-link"        data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="section active">
+      <div class="hero-container">
+        <div class="hero-text">
+          <p class="hero-greeting">👋 Hi there, I'm</p>
+          <h1 class="hero-name">Drew Stephens</h1>
+          <h2 class="hero-title typed-wrapper">
+            <span class="typed" id="typedText"></span><span class="cursor">|</span>
+          </h2>
+          <p class="hero-bio">
+            A passionate developer who loves building clean, user-friendly experiences.
+            I turn ideas into code and coffee into products.
+          </p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" onclick="navigate('projects')">View My Work</button>
+            <button class="btn btn-outline" onclick="navigate('contact')">Get In Touch</button>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:drew.f.stephens@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="avatar-ring">
+            <div class="avatar-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="floating-badge badge-1"><i class="fab fa-js"></i> JavaScript</div>
+          <div class="floating-badge badge-2"><i class="fab fa-python"></i> Python</div>
+          <div class="floating-badge badge-3"><i class="fab fa-react"></i> React</div>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <span class="stat-number" data-target="12">0</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="8">0</span>
+          <span class="stat-label">Technologies</span>
+        </div>
+      </div>
+
+      <!-- Skills section -->
+      <div class="skills-section">
+        <h3 class="section-subtitle">Tech Stack</h3>
+        <div class="skills-grid">
+          <div class="skill-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+          <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+          <div class="skill-card"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+          <div class="skill-card"><i class="fab fa-java"></i><span>Java</span></div>
+          <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
+          <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
+          <div class="skill-card"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
+          <div class="skill-card"><i class="fab fa-android"></i><span>Android UI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-desc">A selection of things I've built. Each card links to the live demo and source code.</p>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="data">Data</button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-placeholder"><i class="fas fa-globe"></i></div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">CSS</span><span class="tag">Firebase</span>
+            </div>
+            <h3>Project One</h3>
+            <p>A full-stack web application that does something amazing. Users can do X, Y, and Z with a clean, responsive interface.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="python">
+          <div class="project-image">
+            <div class="project-img-placeholder"><i class="fab fa-python"></i></div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span>
+            </div>
+            <h3>Project Two</h3>
+            <p>A Python-powered automation tool that saves hours of manual work each week. Features a REST API and a lightweight dashboard.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <div class="project-img-placeholder"><i class="fas fa-chart-bar"></i></div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+            </div>
+            <h3>Data Dashboard</h3>
+            <p>An interactive data visualization dashboard that processes large datasets and surfaces actionable insights through rich charts.</p>
+            <div class="project-links">
+              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== RESUME & CERTS ===== -->
+    <section id="resume" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Résumé &amp; Certifications</h2>
+        <p class="section-desc">My professional background and credentials.</p>
+        <a href="Drew Stephens - Resume.pdf" download class="btn btn-primary resume-download">
+          <i class="fas fa-download"></i> Download Résumé (PDF)
+        </a>
+      </div>
+
+      <div class="resume-layout">
+
+        <!-- Timeline column -->
+        <div class="timeline-column">
+          <h3 class="col-heading"><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <span class="tl-date">May 2025 – Aug 2025</span>
+                <h4 class="tl-role">Application Development Intern</h4>
+                <p class="tl-company">Harford Mutual Insurance Group · Internship</p>
+                <ul class="tl-bullets">
+                  <li>Completed configuration training on Sapiens PolicyPro System.</li>
+                  <li>Used SQL and Power BI to transform raw data into interactable visuals.</li>
+                  <li>Assisted with billing projects, providing technical and operational support.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <span class="tl-date">May 2024 – Aug 2024</span>
+                <h4 class="tl-role">Tech Services Intern</h4>
+                <p class="tl-company">Harford Mutual Insurance Group · Internship</p>
+                <ul class="tl-bullets">
+                  <li>Managed internal ticketing system and supported IT troubleshooting.</li>
+                  <li>Assisted with computer/printer setup and employee onboarding/offboarding.</li>
+                  <li>Transferred personal data to new devices during hardware upgrades.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <h3 class="col-heading mt"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <span class="tl-date">2022 – 2026</span>
+                <h4 class="tl-role">B.S. Computer Science</h4>
+                <p class="tl-company">West Chester University · Harleysville, PA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications column -->
+        <div class="certs-column">
+          <h3 class="col-heading"><i class="fas fa-certificate"></i> Certifications &amp; Awards</h3>
+          <div class="certs-grid">
+
+            <div class="cert-card">
+              <div class="cert-icon security"><i class="fas fa-shield-alt"></i></div>
+              <div class="cert-details">
+                <h4>Computer Security Certificate</h4>
+                <p>NSA Accredited · 2026</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-icon sas"><i class="fas fa-code"></i></div>
+              <div class="cert-details">
+                <h4>SAS Programming 1: Essentials</h4>
+                <p>SAS Institute · 2026</p>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-icon award"><i class="fas fa-trophy"></i></div>
+              <div class="cert-details">
+                <h4>PACISE Cybersecurity Competition</h4>
+                <p>2nd Place Winner · 2025</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-desc">Have a question or want to work together? Fill out the form or reach me directly.</p>
+      </div>
+
+      <div class="contact-layout">
+
+        <div class="contact-info">
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:drew.f.stephens@gmail.com">drew.f.stephens@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank">linkedin.com/in/drew-stephens-92a76b2a5</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-github"></i>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/" target="_blank">github.com/yourname</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Location</h4>
+              <p>Harleysville, PA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Designed &amp; built by <strong>Drew Stephens</strong> · <span id="footerYear"></span></p>
+    <div class="footer-links">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
