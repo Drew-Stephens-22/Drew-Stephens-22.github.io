@@ -24,7 +24,7 @@ function navigate(sectionId) {
 
   // Trigger section-specific animations
   if (sectionId === 'home') startCounters();
-  if (sectionId === 'resume') animateTimeline();
+  if (sectionId === 'resume' || sectionId === 'certs') animateTimeline();
 }
 
 // Wire up nav links
@@ -158,107 +158,6 @@ function animateTimeline() {
   });
 }
 
-/* ---------- Contact form ---------- */
-const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('submitBtn');
-const formSuccess = document.getElementById('formSuccess');
-
-// ── Replace this URL with your own Formspree endpoint ──
-// Sign up free at https://formspree.io, create a form, and paste the
-// action URL (e.g. https://formspree.io/f/abcdefgh) below.
-const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
-
-function validateForm() {
-  let valid = true;
-
-  const name    = document.getElementById('name');
-  const email   = document.getElementById('email');
-  const message = document.getElementById('message');
-  const nameErr    = document.getElementById('nameErr');
-  const emailErr   = document.getElementById('emailErr');
-  const messageErr = document.getElementById('messageErr');
-
-  // Reset
-  [name, email, message].forEach(el => el.classList.remove('invalid'));
-  [nameErr, emailErr, messageErr].forEach(el => el.textContent = '');
-
-  if (!name.value.trim()) {
-    nameErr.textContent = 'Name is required.';
-    name.classList.add('invalid');
-    valid = false;
-  }
-
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email.value.trim()) {
-    emailErr.textContent = 'Email is required.';
-    email.classList.add('invalid');
-    valid = false;
-  } else if (!emailRe.test(email.value)) {
-    emailErr.textContent = 'Please enter a valid email address.';
-    email.classList.add('invalid');
-    valid = false;
-  }
-
-  if (!message.value.trim()) {
-    messageErr.textContent = 'Message is required.';
-    message.classList.add('invalid');
-    valid = false;
-  }
-
-  return valid;
-}
-
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  if (!validateForm()) return;
-
-  // Show loading state
-  const btnText    = submitBtn.querySelector('.btn-text');
-  const btnLoading = submitBtn.querySelector('.btn-loading');
-  btnText.style.display    = 'none';
-  btnLoading.style.display = 'inline-flex';
-  submitBtn.disabled       = true;
-
-  try {
-    const data = new FormData(form);
-
-    // If using Formspree, POST to the endpoint
-    const res = await fetch(FORMSPREE_URL, {
-      method:  'POST',
-      body:    data,
-      headers: { Accept: 'application/json' },
-    });
-
-    if (res.ok) {
-      form.reset();
-      formSuccess.style.display = 'flex';
-      setTimeout(() => { formSuccess.style.display = 'none'; }, 6000);
-    } else {
-      alert('Something went wrong. Please email me directly.');
-    }
-  } catch {
-    // Network error fallback — open mail client
-    const name    = document.getElementById('name').value;
-    const email   = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value || 'Portfolio Contact';
-    const message = document.getElementById('message').value;
-    window.location.href =
-      `mailto:you@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-  } finally {
-    btnText.style.display    = 'inline-flex';
-    btnLoading.style.display = 'none';
-    submitBtn.disabled       = false;
-  }
-});
-
-// Live validation on blur
-['name', 'email', 'message'].forEach(id => {
-  const el = document.getElementById(id);
-  el.addEventListener('blur', () => {
-    if (el.value.trim()) el.classList.remove('invalid');
-  });
-});
-
 /* ---------- Back to top ---------- */
 const backToTop = document.getElementById('backToTop');
 
@@ -289,4 +188,27 @@ document.querySelectorAll('.skill-card').forEach((card, i) => {
   card.style.transform  = 'translateY(20px)';
   card.style.transition = `opacity 0.4s ease ${i * 60}ms, transform 0.4s ease ${i * 60}ms`;
   observer.observe(card);
+});
+/* ---------- Copy to Clipboard ---------- */
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const textToCopy = btn.dataset.copy;
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const icon = btn.querySelector('i');
+      const originalClass = icon.className;
+      
+      // Change to checkmark
+      icon.className = 'fas fa-check';
+      btn.classList.add('copied');
+
+      // Revert back after 2 seconds
+      setTimeout(() => {
+        icon.className = originalClass;
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  });
 });

@@ -9,11 +9,10 @@
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
   <header>
     <nav class="navbar">
       <div class="nav-logo">
-        <span class="logo-bracket">&lt;</span>Drew Stephens<span class="logo-bracket">/&gt;</span>
+        Drew Stephens Portfolio 
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -21,7 +20,8 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home"          class="nav-link active" data-section="home">Home</a></li>
         <li><a href="#projects"      class="nav-link"        data-section="projects">Projects</a></li>
-        <li><a href="#resume"        class="nav-link"        data-section="resume">Résumé &amp; Certs</a></li>
+        <li><a href="#resume"        class="nav-link"        data-section="resume">Résumé &amp; Experience</a></li>
+        <li><a href="#certs"         class="nav-link"        data-section="certs">Certifications</a></li>
         <li><a href="#contact"       class="nav-link"        data-section="contact">Contact</a></li>
       </ul>
     </nav>
@@ -29,7 +29,6 @@
 
   <main>
 
-    <!-- ===== HOME ===== -->
     <section id="home" class="section active">
       <div class="hero-container">
         <div class="hero-text">
@@ -47,7 +46,7 @@
             <button class="btn btn-outline" onclick="navigate('contact')">Get In Touch</button>
           </div>
           <div class="hero-socials">
-            <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Drew-Stephens-22/Drew-Stephens-22.github.io" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="mailto:drew.f.stephens@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
@@ -55,8 +54,7 @@
         <div class="hero-visual">
           <div class="avatar-ring">
             <div class="avatar-placeholder">
-              <i class="fas fa-user"></i>
-            </div>
+              <img src="IMG_2003.jpg" alt="Drew Stephens" class="avatar-photo" /></div>
           </div>
           <div class="floating-badge badge-1"><i class="fab fa-js"></i> JavaScript</div>
           <div class="floating-badge badge-2"><i class="fab fa-python"></i> Python</div>
@@ -64,7 +62,6 @@
         </div>
       </div>
 
-      <!-- Stats strip -->
       <div class="stats-strip">
         <div class="stat-item">
           <span class="stat-number" data-target="12">0</span>
@@ -84,7 +81,6 @@
         </div>
       </div>
 
-      <!-- Skills section -->
       <div class="skills-section">
         <h3 class="section-subtitle">Tech Stack</h3>
         <div class="skills-grid">
@@ -100,7 +96,6 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
     <section id="projects" class="section">
       <div class="section-header">
         <h2 class="section-title">My Projects</h2>
@@ -169,19 +164,16 @@
       </div>
     </section>
 
-    <!-- ===== RESUME & CERTS ===== -->
     <section id="resume" class="section">
       <div class="section-header">
-        <h2 class="section-title">Résumé &amp; Certifications</h2>
-        <p class="section-desc">My professional background and credentials.</p>
-        <a href="Drew Stephens - Resume.pdf" download class="btn btn-primary resume-download">
+        <h2 class="section-title">Résumé &amp; Experience</h2>
+        <p class="section-desc">My professional background and education.</p>
+        <a href="resume.pdf" download class="btn btn-primary resume-download">
           <i class="fas fa-download"></i> Download Résumé (PDF)
         </a>
       </div>
 
-      <div class="resume-layout">
-
-        <!-- Timeline column -->
+      <div style="max-width: 600px; margin: 0 auto;">
         <div class="timeline-column">
           <h3 class="col-heading"><i class="fas fa-briefcase"></i> Experience</h3>
           <div class="timeline">
@@ -228,10 +220,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Certifications column -->
+    <section id="certs" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Certifications &amp; Awards</h2>
+        <p class="section-desc">My credentials and achievements.</p>
+      </div>
+
+      <div style="max-width: 600px; margin: 0 auto;">
         <div class="certs-column">
-          <h3 class="col-heading"><i class="fas fa-certificate"></i> Certifications &amp; Awards</h3>
           <div class="certs-grid">
 
             <div class="cert-card">
@@ -260,59 +259,73 @@
 
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
     <section id="contact" class="section">
       <div class="section-header">
         <h2 class="section-title">Get In Touch</h2>
-        <p class="section-desc">Have a question or want to work together? Fill out the form or reach me directly.</p>
+        <p class="section-desc">Have a question or want to work together? Reach out using the links below.</p>
       </div>
 
       <div class="contact-layout">
 
         <div class="contact-info">
+          
           <div class="contact-card">
+            <button class="copy-btn" data-copy="drew.f.stephens@gmail.com" aria-label="Copy Email" title="Copy to clipboard">
+              <i class="far fa-copy"></i>
+            </button>
             <i class="fas fa-envelope"></i>
             <div>
               <h4>Email</h4>
               <a href="mailto:drew.f.stephens@gmail.com">drew.f.stephens@gmail.com</a>
             </div>
           </div>
+
           <div class="contact-card">
+            <button class="copy-btn" data-copy="https://www.linkedin.com/in/drew-stephens-92a76b2a5" aria-label="Copy LinkedIn URL" title="Copy to clipboard">
+              <i class="far fa-copy"></i>
+            </button>
             <i class="fab fa-linkedin"></i>
             <div>
               <h4>LinkedIn</h4>
-              <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank">linkedin.com/in/drew-stephens-92a76b2a5</a>
+              <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank">linkedin.com/in/drew-stephens...</a>
             </div>
           </div>
+
           <div class="contact-card">
+            <button class="copy-btn" data-copy="https://github.com/Drew-Stephens-22/Drew-Stephens-22.github.io" aria-label="Copy GitHub URL" title="Copy to clipboard">
+              <i class="far fa-copy"></i>
+            </button>
             <i class="fab fa-github"></i>
             <div>
               <h4>GitHub</h4>
-              <a href="https://github.com/" target="_blank">github.com/yourname</a>
+              <a href="https://github.com/Drew-Stephens-22/Drew-Stephens-22.github.io" target="_blank">Drew-Stephens-22.github.io</a>
             </div>
           </div>
+
           <div class="contact-card">
+            <button class="copy-btn" data-copy="Harleysville, PA" aria-label="Copy Location" title="Copy to clipboard">
+              <i class="far fa-copy"></i>
+            </button>
             <i class="fas fa-map-marker-alt"></i>
             <div>
               <h4>Location</h4>
               <p>Harleysville, PA</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
     <p>Designed &amp; built by <strong>Drew Stephens</strong> · <span id="footerYear"></span></p>
     <div class="footer-links">
-      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/Drew-Stephens-22/Drew-Stephens-22.github.io" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/drew-stephens-92a76b2a5" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>

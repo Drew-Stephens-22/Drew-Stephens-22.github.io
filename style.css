@@ -614,13 +614,20 @@ main { padding-top: var(--nav-h); }
    CONTACT
    ============================================= */
 .contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 3rem;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.contact-info { display: flex; flex-direction: column; gap: 1rem; }
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
 .contact-card {
   background: var(--bg-card);
@@ -628,7 +635,9 @@ main { padding-top: var(--nav-h); }
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 1rem;
   transition: all var(--transition);
 }
@@ -648,102 +657,6 @@ main { padding-top: var(--nav-h); }
   font-size: 0.9rem;
   color: var(--text);
   font-weight: 500;
-}
-
-.availability {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.88rem;
-  color: #4caf50;
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  background: rgba(76,175,80,0.1);
-  border: 1px solid rgba(76,175,80,0.3);
-  margin-top: 0.5rem;
-}
-.avail-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #4caf50;
-  box-shadow: 0 0 0 3px rgba(76,175,80,0.25);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.25); }
-  50%       { box-shadow: 0 0 0 7px rgba(76,175,80,0.05); }
-}
-
-/* Form */
-.contact-form {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-}
-
-.form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-.form-group label {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.req { color: var(--accent); }
-
-.form-group input,
-.form-group textarea {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-  color: var(--text);
-  font-size: 0.95rem;
-  font-family: inherit;
-  transition: border-color var(--transition), box-shadow var(--transition);
-  resize: vertical;
-}
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
-.form-group input.invalid,
-.form-group textarea.invalid {
-  border-color: #e63946;
-}
-
-.form-error {
-  font-size: 0.78rem;
-  color: #e63946;
-  min-height: 1em;
-}
-
-.form-success {
-  text-align: center;
-  color: #4caf50;
-  font-weight: 600;
-  padding: 0.75rem;
-  background: rgba(76,175,80,0.1);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(76,175,80,0.3);
-}
-
-.form-note {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-align: center;
-  line-height: 1.5;
-}
-.form-note code {
-  background: var(--bg-card2);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  font-family: monospace;
 }
 
 /* =============================================
@@ -838,4 +751,46 @@ footer strong { color: var(--text); }
   .projects-grid { grid-template-columns: 1fr; }
   .resume-layout, .contact-layout { gap: 2rem; }
   .floating-badge { display: none; }
+}
+/* Ensure the card can anchor the copy button */
+.contact-card {
+  position: relative;
+}
+
+/* Copy Button Styling - Hidden by default */
+.copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+/* Show the button when the mouse hovers over the contact card */
+.contact-card:hover .copy-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover effect for the button itself */
+.copy-btn:hover {
+  color: var(--accent);
+  transform: scale(1.15);
+}
+
+/* Keep the checkmark visible while the "copied" state is active */
+.copy-btn.copied {
+  color: #4caf50; 
+  opacity: 1;
+  visibility: visible;
 }
