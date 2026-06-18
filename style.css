@@ -279,11 +279,21 @@ main { padding-top: var(--nav-h); }
 }
 
 .avatar-ring {
-  width: 280px; height: 280px;
+  position: relative;
+  width: 280px; 
+  height: 280px;
+  border-radius: 50%;
+  padding: 4px;
+  z-index: 1; /* Keeps the photo on top */}
+
+.avatar-ring::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent), #ff6b9d);
-  padding: 4px;
   animation: rotateRing 8s linear infinite;
+  z-index: -1; /* Pushes the spinning border perfectly behind your picture */
 }
 @keyframes rotateRing {
   from { transform: rotate(0deg); }
@@ -295,7 +305,6 @@ main { padding-top: var(--nav-h); }
   height: 100%;
   border-radius: 50%;
   object-fit: cover; /* Ensures your photo fills the circle without stretching */
-  animation: rotateRing 8s linear infinite reverse; /* Keeps your photo upright */
 }
 
 /* Floating badges */
@@ -311,9 +320,14 @@ main { padding-top: var(--nav-h); }
   white-space: nowrap;
   box-shadow: var(--shadow);
 }
-.badge-1 { top: 10%;  right: -5%;  animation: float 4s ease-in-out infinite; }
-.badge-2 { bottom: 15%; left: -10%; animation: float 4s ease-in-out infinite 1s; }
-.badge-3 { bottom: 35%; right: -8%; animation: float 4s ease-in-out infinite 2s; }
+.badge-1 { top: -5%;   left: 5%;    animation: float 4s ease-in-out infinite; }
+.badge-2 { top: 30%;   left: -7%;  animation: float 4.5s ease-in-out infinite 0.5s; }
+.badge-3 { bottom: 20%; left: -5%; animation: float 4.2s ease-in-out infinite 1.2s; }
+.badge-4 { bottom: -10%; left: 25%; animation: float 4.8s ease-in-out infinite 0.3s; }
+.badge-5 { bottom: -5%; right: 5%;  animation: float 5.1s ease-in-out infinite 0.8s; }
+.badge-6 { bottom: 25%; right: -7%; animation: float 4.3s ease-in-out infinite 1.5s; }
+.badge-7 { top: 25%;   right: -6%; animation: float 4.6s ease-in-out infinite 0.7s; }
+.badge-8 { top: -10%;  right: 20%;  animation: float 3.9s ease-in-out infinite 1.1s; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
