@@ -290,16 +290,12 @@ main { padding-top: var(--nav-h); }
   to   { transform: rotate(360deg); }
 }
 
-.avatar-placeholder {
-  width: 100%; height: 100%;
+.avatar-photo {
+  width: 100%; 
+  height: 100%;
   border-radius: 50%;
-  background: var(--bg-card2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-  color: var(--accent);
-  animation: rotateRing 8s linear infinite reverse; /* counter-rotate so icon stays upright */
+  object-fit: cover; /* Ensures your photo fills the circle without stretching */
+  animation: rotateRing 8s linear infinite reverse; /* Keeps your photo upright */
 }
 
 /* Floating badges */
