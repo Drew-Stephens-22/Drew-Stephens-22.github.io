@@ -50,14 +50,17 @@ header {
   background: rgba(13,13,20,0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
-  height: var(--nav-h);
+  /* Replace strict height with min-height and iOS safe-area */
+  min-height: var(--nav-h);
+  padding-top: env(safe-area-inset-top);
 }
 
 .navbar {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  height: 100%;
+  /* Replace height: 100% with min-height */
+  min-height: var(--nav-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
