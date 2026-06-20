@@ -64,10 +64,15 @@ header {
 }
 
 .nav-logo {
-  font-size: 1.35rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.5px;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+.nav-logo.hidden{
+  opacity: 0;
+  visibility: hidden;
 }
 .logo-bracket { color: var(--accent); }
 
@@ -233,7 +238,7 @@ main { padding-top: var(--nav-h); }
   color: var(--accent);
   min-height: 2.2rem;
   margin-bottom: 1.2rem;
-}
+}  
 .cursor {
   display: inline-block;
   color: var(--accent);
@@ -270,7 +275,7 @@ main { padding-top: var(--nav-h); }
   transform: translateY(-3px);
 }
 
-/* Avatar */
+/* Avatar - Desktop View */
 .hero-visual {
   position: relative;
   display: flex;
@@ -284,7 +289,8 @@ main { padding-top: var(--nav-h); }
   height: 280px;
   border-radius: 50%;
   padding: 4px;
-  z-index: 1; /* Keeps the photo on top */}
+  z-index: 1; /* Keeps the photo on top */
+}
 
 .avatar-ring::before{
   content: '';
@@ -307,7 +313,7 @@ main { padding-top: var(--nav-h); }
   object-fit: cover; /* Ensures your photo fills the circle without stretching */
 }
 
-/* Floating badges */
+/* Floating badges - Desktop View */
 .floating-badge {
   position: absolute;
   background: var(--bg-card2);
@@ -319,7 +325,9 @@ main { padding-top: var(--nav-h); }
   color: var(--text);
   white-space: nowrap;
   box-shadow: var(--shadow);
+  z-index: 5;
 }
+
 .badge-1 { top: -5%;   left: 5%;    animation: float 4s ease-in-out infinite; }
 .badge-2 { top: 30%;   left: -7%;  animation: float 4.5s ease-in-out infinite 0.5s; }
 .badge-3 { bottom: 20%; left: -5%; animation: float 4.2s ease-in-out infinite 1.2s; }
@@ -722,46 +730,6 @@ footer strong { color: var(--text); }
 }
 #backToTop:hover { background: var(--accent-dark); transform: translateY(-3px); }
 
-/* =============================================
-   RESPONSIVE
-   ============================================= */
-@media (max-width: 900px) {
-  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
-  .hero-bio { margin: 0 auto 2rem; }
-  .hero-cta { justify-content: center; }
-  .hero-socials { justify-content: center; }
-  .hero-visual { min-height: 260px; }
-  .avatar-ring { width: 220px; height: 220px; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); }
-  .resume-layout { grid-template-columns: 1fr; }
-  .contact-layout { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 640px) {
-  .navbar { padding: 0 1rem; }
-  .nav-links {
-    position: fixed;
-    top: var(--nav-h);
-    left: 0; right: 0;
-    background: rgba(13,13,20,0.97);
-    backdrop-filter: blur(14px);
-    flex-direction: column;
-    gap: 0;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-    transform: translateY(-110%);
-    transition: transform var(--transition);
-  }
-  .nav-links.open { transform: translateY(0); }
-  .nav-link { display: block; padding: 0.85rem 1.5rem; border-radius: 0; }
-  .hamburger { display: flex; }
-  .section { padding: 2.5rem 1.25rem 4rem; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; padding: 1.25rem; }
-  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  .projects-grid { grid-template-columns: 1fr; }
-  .resume-layout, .contact-layout { gap: 2rem; }
-  .floating-badge { display: none; }
-}
 /* Ensure the card can anchor the copy button */
 .contact-card {
   position: relative;
@@ -803,4 +771,86 @@ footer strong { color: var(--text); }
   color: #4caf50; 
   opacity: 1;
   visibility: visible;
+}
+
+/* =============================================
+   RESPONSIVE (Mobile Overrides)
+   ============================================= */
+@media (max-width: 900px) {
+  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+  .hero-bio { margin: 0 auto 2rem; }
+  .hero-cta { justify-content: center; }
+  .hero-socials { justify-content: center; }
+  .hero-visual { min-height: 260px; }
+  .avatar-ring { width: 220px; height: 220px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .resume-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .navbar { padding: 0 1rem; }
+  
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: rgba(13,13,20,0.97);
+    backdrop-filter: blur(14px);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-110%);
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transition: all var(--transition);
+  }
+  
+  .nav-logo {
+    font-size: 1.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .nav-links.open {
+    transform: translateY(0); 
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+  }
+  
+  .nav-link { display: block; padding: 0.85rem 1.5rem; border-radius: 0; }
+  .hamburger { display: flex; }
+  .section { padding: 2.5rem 1.25rem 4rem; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; padding: 1.25rem; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  .projects-grid { grid-template-columns: 1fr; }
+  .resume-layout, .contact-layout { gap: 2rem; }
+
+  /* Mobile Hero Overrides */
+  .hero-visual {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1rem;
+  }
+  
+  .avatar-ring {
+    margin-bottom: 1.5rem;
+  }
+
+  .floating-badge { 
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative !important; 
+    top: auto !important; 
+    bottom: auto !important; 
+    left: auto !important; 
+    right: auto !important; 
+    animation: none !important; 
+    transform: none !important;
+  }
 }

@@ -18,6 +18,7 @@ function navigate(sectionId) {
   // Close mobile menu
   navLinks.classList.remove('open');
   hamburger.classList.remove('open');
+  document.querySelector('.nav-logo').classList.remove('hidden');
 
   // Scroll to top of page
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,10 +39,12 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // Mobile hamburger
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
+const navLogo   = document.querySelector('.nav-logo');
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   navLinks.classList.toggle('open');
+  navLogo.classList.toggle('hidden');
 });
 
 /* ---------- Typed text animation ---------- */
