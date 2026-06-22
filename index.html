@@ -63,7 +63,7 @@
 
       <div class="stats-strip">
         <div class="stat-item">
-          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-number" data-target="3">0</span>
           <span class="stat-label">Projects Completed</span>
         </div>
         <div class="stat-item">
@@ -71,7 +71,7 @@
           <span class="stat-label">Years Experience</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-number" data-target="2">0</span>
           <span class="stat-label">Certifications</span>
         </div>
         <div class="stat-item">
@@ -88,19 +88,34 @@
         </button>
         <h2 class="section-title">My Projects</h2>
         <p class="section-desc">A selection of things I've built. Expand each card for screenshots and details.</p>
-        <!--
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="python">Python</button>
-          <button class="filter-btn" data-filter="data">Data</button>
-
-        </div>
-        -->
       </div>
+
+      <div class="projects-grid" id="projectsGrid">
 <!--Project 1-->
-<div class="projects-grid" id="projectsGrid">
-        
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">Node.js</span>
+            </div>
+            <h3>Capstone </h3>
+            <p class="short-desc">The back-end architecture and API integration for a custom Computer Science course registration platform </p>
+            
+            <div class="project-details">
+              <div class="details-content">
+                <p>Developed the server-side infrastructure for a student course registration system built with React. 
+                  Collaborated with university IT to secure and integrate official institutional APIs, 
+                  allowing the application to fetch and process real-time course catalogs and student data. 
+                  Designed and routed internal API endpoints to ensure smooth, secure data flow between the database and the front-end interface.</p>
+              </div>
+            </div>
+            <button class="expand-btn" aria-label="Expand project details">
+              Read More <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+<!--Project 2-->
         <div class="project-card" data-category="web">
           <div class="project-image">
             <img src="Survival1.png" alt="Android Portfolio App Preview" />          
@@ -121,7 +136,6 @@
                   <img src="Survival2.png" alt="Android Portfolio App Preview" />          
                   <img src="Survival3.png" alt="Android Portfolio App Preview" />          
                 </div>
-                
               </div>
             </div>
 
@@ -130,8 +144,7 @@
             </button>      
           </div>
         </div>
-
-<!--Project 2-->
+<!--Project 3-->
         <div class="project-card" data-category="web">
           <div class="project-image">
             <img src="Portfolio1.png" alt="Android Portfolio App Preview" />          
@@ -146,17 +159,16 @@
             <div class="project-details">
               <div class="details-content">
                 <p>Within this app is where I store my apps created with Android Studio. 
-                  Which includes a List app which has a list of fruits and descriptions of said fruit.
-                  A Mars app that accesses the internet to pull images and can also store personal images.
-                  A Juice Tracker app to create and store specific jucie recipies with a recycle bin that can bring back deleted data.
-                  A Dice Roller game with an animated die to display the differenct numbers it can land on.
-                  A flashlight game to search a blacked out screen with a "flashlight" to find the button to light up the whole room. </p>
+                  My apps includes:
+                  • List App
+                  • Mars App
+                  • Juice Tracker App.
+                  • Dice Roller Game
+                  • Flashlight Game</p>
                 
                 <div class="screenshot-grid">
                   <img src="Portfolio2.png" alt="Android Portfolio App Preview" />
                 </div>
-                
-                
               </div>
             </div>
             <button class="expand-btn" aria-label="Expand project details">
@@ -164,8 +176,8 @@
             </button>
           </div>
         </div>
-      </div>
-    </section>
+
+      </div> </section>
 
     <section id="resume" class="section">
       <div class="section-header">
@@ -247,6 +259,15 @@
             <div class="cert-details">
               <h4>Computer Security Certificate</h4>
               <p>NSA Accredited · 2026</p>
+            </div>
+          </div>
+        </div>
+        <div class="certs-grid" style="margin-bottom: 2.5rem;">
+          <div class="cert-card">
+            <div class="cert-icon security"><i class="fas fa-brain"></i></div>
+            <div class="cert-details">
+              <h4>Google AI Essentials</h4>
+              <p>Coursera · 2026</p>
             </div>
           </div>
         </div>
