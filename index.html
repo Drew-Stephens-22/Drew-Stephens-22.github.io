@@ -20,7 +20,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home"          class="nav-link active" data-section="home">Home</a></li>
         <li><a href="#projects"      class="nav-link"        data-section="projects">Projects</a></li>
-        <li><a href="#resume"        class="nav-link"        data-section="resume">Résumé &amp; Experience</a></li>
+        <li><a href="#resume"        class="nav-link"        data-section="resume">Resume &amp; Experience</a></li>
         <li><a href="#certs"         class="nav-link"        data-section="certs">Certifications</a></li>
         <li><a href="#contact"       class="nav-link"        data-section="contact">Contact</a></li>
       </ul>
@@ -39,28 +39,25 @@
           </h2>
           <p class="hero-bio">
             A passionate developer who loves building clean, user-friendly experiences.
-            I turn ideas into code and coffee into products.
           </p>
           <div class="hero-cta">
             <button class="btn btn-primary" onclick="navigate('projects')">View My Work</button>
             <button class="btn btn-outline" onclick="navigate('contact')">Get In Touch</button>
           </div>
-        
         </div>
+        
         <div class="hero-visual">
           <div class="avatar-ring">
-            <div class="avatar-photo">
-              <img src="IMG_2003.JPEG" alt="Drew Stephens" class="avatar-photo" /></div>
+            <img src="IMG_2003.JPEG" alt="Drew Stephens" class="avatar-photo" />
           </div>
           <div class="floating-badge badge-1"><i class="fab fa-js"></i> JavaScript</div>
           <div class="floating-badge badge-2"><i class="fab fa-python"></i> Python</div>
           <div class="floating-badge badge-3"><i class="fab fa-react"></i> React</div>
           <div class="floating-badge badge-4"><i class="fab fa-java"></i> Java</div>
-          <div class="floating-badge badge-5"><i class="fab fa-python"></i> Python</div>
+          <div class="floating-badge badge-5"><i class="fab fa-python"></i> Base SAS</div>
           <div class="floating-badge badge-6"><i class="fas fa-database"></i> SQL</div>
           <div class="floating-badge badge-7"><i class="fas fa-chart-bar"></i> Power BI</div>
           <div class="floating-badge badge-8"><i class="fab fa-android"></i> Android UI</div>
-
         </div>
       </div>
 
@@ -82,90 +79,103 @@
           <span class="stat-label">Technical Skills</span>
         </div>
       </div>
-</section>
+    </section>
 
-  <!--PROECTS-->
     <section id="projects" class="section">
       <div class="section-header">
+        <button class="btn btn-sm btn-outline back-home-btn" onclick="navigate('home')">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
         <h2 class="section-title">My Projects</h2>
-        <p class="section-desc">A selection of things I've built. Each card links to the live demo and source code.</p>
+        <p class="section-desc">A selection of things I've built. Expand each card for screenshots and details.</p>
+        <!--
         <div class="filter-bar">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="web">Web</button>
           <button class="filter-btn" data-filter="python">Python</button>
           <button class="filter-btn" data-filter="data">Data</button>
-        </div>
-      </div>
 
-      <div class="projects-grid" id="projectsGrid">
-
-
-<!--PROJECT EXMAPLE--
-        <div class="project-card" data-category="web">
-          <div class="project-image">
-            <div class="project-img-placeholder"><i class="fas fa-globe"></i></div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">React</span><span class="tag">CSS</span><span class="tag">Firebase</span>
-            </div>
-            <h3>Project One</h3>
-            <p>A full-stack web application that does something amazing. Users can do X, Y, and Z with a clean, responsive interface.</p>
-            <div class="project-links">
-              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
-            </div>
-          </div>
-        </div>
--->
-
-<!--PROJECT EXMAPLE--
-        <div class="project-card" data-category="python">
-          <div class="project-image">
-            <div class="project-img-placeholder"><i class="fab fa-python"></i></div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span>
-            </div>
-            <h3>Project Two</h3>
-            <p>A Python-powered automation tool that saves hours of manual work each week. Features a REST API and a lightweight dashboard.</p>
-            <div class="project-links">
-              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
-            </div>
-          </div>
-        </div>
--->
-
-<!--PROJECT EXMAPLE--
-        <div class="project-card" data-category="data">
-          <div class="project-image">
-            <div class="project-img-placeholder"><i class="fas fa-chart-bar"></i></div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
-            </div>
-            <h3>Data Dashboard</h3>
-            <p>An interactive data visualization dashboard that processes large datasets and surfaces actionable insights through rich charts.</p>
-            <div class="project-links">
-              <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Source</a>
-            </div>
-          </div>
         </div>
         -->
+      </div>
+<!--Project 1-->
+<div class="projects-grid" id="projectsGrid">
+        
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="Survival1.png" alt="Android Portfolio App Preview" />          
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Android Studio</span><span class="tag">Kotlin</span><span class="tag">Java</span>
+            </div>
+            <h3>Survival App</h3>
+            <p class="short-desc">An Android Application used to help for survival on or offline.</p>
+            
+            <div class="project-details">
+              <div class="details-content">
+                <p>This application stores a list of survival information. 
+                  Built entirely in Kotlin, it utilizes modern Android libraries to ensure reliability even without an internet connection.</p>
+                
+                <div class="screenshot-grid">
+                  <img src="Survival2.png" alt="Android Portfolio App Preview" />          
+                  <img src="Survival3.png" alt="Android Portfolio App Preview" />          
+                </div>
+                
+              </div>
+            </div>
 
+            <button class="expand-btn" aria-label="Expand project details">
+              Read More <i class="fas fa-chevron-down"></i>
+            </button>      
+          </div>
+        </div>
+
+<!--Project 2-->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="Portfolio1.png" alt="Android Portfolio App Preview" />          
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Android Studio</span><span class="tag">Kotlin</span><span class="tag">Java</span>
+            </div>
+            <h3>Android Portfolio App</h3>
+            <p class="short-desc">An Android Application to store apps craeted using Android Studio.</p>
+            
+            <div class="project-details">
+              <div class="details-content">
+                <p>Within this app is where I store my apps created with Android Studio. 
+                  Which includes a List app which has a list of fruits and descriptions of said fruit.
+                  A Mars app that accesses the internet to pull images and can also store personal images.
+                  A Juice Tracker app to create and store specific jucie recipies with a recycle bin that can bring back deleted data.
+                  A Dice Roller game with an animated die to display the differenct numbers it can land on.
+                  A flashlight game to search a blacked out screen with a "flashlight" to find the button to light up the whole room. </p>
+                
+                <div class="screenshot-grid">
+                  <img src="Portfolio2.png" alt="Android Portfolio App Preview" />
+                </div>
+                
+                
+              </div>
+            </div>
+            <button class="expand-btn" aria-label="Expand project details">
+              Read More <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="resume" class="section">
       <div class="section-header">
-        <h2 class="section-title">Résumé &amp; Experience</h2>
+        <button class="btn btn-sm btn-outline back-home-btn" onclick="navigate('home')">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+        <h2 class="section-title">Resume &amp; Experience</h2>
         <p class="section-desc">My professional background and education.</p>
-        <a href="resume.pdf" download class="btn btn-primary resume-download">
-          <i class="fas fa-download"></i> Download Résumé (PDF)
+        <a href="Drew Stephens - Resume.pdf" download class="btn btn-primary resume-download">
+          <i class="fas fa-download"></i> Download Resume (PDF)
         </a>
       </div>
 
@@ -221,6 +231,9 @@
 
     <section id="certs" class="section">
       <div class="section-header">
+        <button class="btn btn-sm btn-outline back-home-btn" onclick="navigate('home')">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
         <h2 class="section-title">Credentials &amp; Achievements</h2>
         <p class="section-desc">My certifications, courses, and awards.</p>
       </div>
@@ -265,12 +278,14 @@
 
     <section id="contact" class="section">
       <div class="section-header">
+        <button class="btn btn-sm btn-outline back-home-btn" onclick="navigate('home')">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
         <h2 class="section-title">Get In Touch</h2>
         <p class="section-desc">Have a question or want to work together? Reach out using the links below.</p>
       </div>
 
       <div class="contact-layout">
-
         <div class="contact-info">
           
           <div class="contact-card">

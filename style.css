@@ -412,6 +412,85 @@ main { padding-top: var(--nav-h); }
 /* =============================================
    PROJECTS
    ============================================= */
+   /* Expandable Project Details */
+.project-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-out;
+  overflow: hidden;
+}
+
+.project-card.expanded .project-details {
+  grid-template-rows: 1fr;
+}
+
+.details-content {
+  min-height: 0; /* Required for the grid transition to work */
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.project-card.expanded .details-content {
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Screenshot Placeholders */
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.screenshot-placeholder {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.screenshot-placeholder i {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+}
+
+/* The Expand Button */
+.expand-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  align-self: flex-end; /* Pushes the button to the right */
+  transition: color var(--transition);
+}
+
+.expand-btn:hover {
+  color: var(--accent-dark);
+}
+
+.expand-btn i {
+  transition: transform 0.4s ease;
+}
+
+.project-card.expanded .expand-btn i {
+  transform: rotate(180deg); /* Flips the arrow up when open */
+}
 .filter-bar {
   display: flex;
   gap: 0.5rem;
@@ -442,6 +521,7 @@ main { padding-top: var(--nav-h); }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
+  align-items: start; /* This tells the grid to let each card be its own height! */
 }
 
 .project-card {
@@ -835,19 +915,21 @@ footer strong { color: var(--text); }
 
   /* Mobile Hero Overrides */
   .hero-visual {
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: block;
+    text-align: center;
     padding-top: 1rem;
   }
   
   .avatar-ring {
-    margin-bottom: 1.5rem;
+    display: block;
+    margin: 0 auto 1.5rem auto;
   }
 
   .floating-badge { 
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    margin: 0.3rem;
     position: relative !important; 
     top: auto !important; 
     bottom: auto !important; 
@@ -856,4 +938,25 @@ footer strong { color: var(--text); }
     animation: none !important; 
     transform: none !important;
   }
+}
+.back-home-btn {
+  margin-bottom: 1.5rem;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+/* Ensure project cover images fit the box perfectly */
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style the dropdown screenshots to match your theme */
+.screenshot-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }

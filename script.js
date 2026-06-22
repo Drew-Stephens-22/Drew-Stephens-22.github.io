@@ -215,3 +215,23 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     });
   });
 });
+/* ---------- Project Expansion ---------- */
+// 1. Grab every "Read More" button on the page
+const expandButtons = document.querySelectorAll('.expand-btn');
+
+// 2. Attach a separate click listener to each one individually
+expandButtons.forEach(btn => {
+  btn.addEventListener('click', function() {
+    // 3. Find ONLY the card that contains the button that was just clicked
+    const card = this.closest('.project-card');
+    
+    // 4. Toggle the 'expanded' class on that specific card
+    card.classList.toggle('expanded');
+    
+    // 5. Update the text and icon for this specific button
+    const isExpanded = card.classList.contains('expanded');
+    this.innerHTML = isExpanded 
+      ? 'Show Less <i class="fas fa-chevron-up"></i>' 
+      : 'Read More <i class="fas fa-chevron-down"></i>';
+  });
+});
