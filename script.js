@@ -3,30 +3,63 @@
    ============================================= */
 
 /* ---------- Navigation ---------- */
+// 1. The Navigation Function
+// This handles clicks from your buttons (like "View My Work" or "Back to Home")
 function navigate(sectionId) {
-  // Hide all sections
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  // Show target
-  const target = document.getElementById(sectionId);
-  if (target) target.classList.add('active');
-
-  // Update nav links
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.toggle('active', link.dataset.section === sectionId);
-  });
-
-  // Close mobile menu
-  navLinks.classList.remove('open');
-  hamburger.classList.remove('open');
-  document.querySelector('.nav-logo').classList.remove('hidden');
-
-  // Scroll to top of page
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // Trigger section-specific animations
-  if (sectionId === 'home') startCounters();
-  if (sectionId === 'resume' || sectionId === 'certs') animateTimeline();
+    // Instead of changing the DOM directly, we just change the URL hash.
+    // This will automatically trigger the 'hashchange' event below.
+    window.location.hash = sectionId;
 }
+
+// 2. The Core Router Logic
+// This function looks at the URL and decides which section to show
+function handleRouting() {
+    // Get the current hash (e.g., "#certs"), remove the "#" to just get "certs".
+    // If there is no hash (like when they first visit), default to "home".
+    let currentHash = window.location.hash.substring(1) || 'home';
+
+    // Get all sections and nav links
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Hide all sections by removing the 'active' class
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove 'active' class from all nav links
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Find the target section based on the hash
+    const targetSection = document.getElementById(currentHash);
+
+    // If the section exists, show it. Otherwise, fallback to home.
+    if (targetSection) {
+        targetSection.classList.add('active');
+        
+        // Find the corresponding nav link and make it active
+        const activeLink = document.querySelector(`.nav-link[href="#${currentHash}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    } else {
+        // Fallback if someone types a weird hash like #blablabla
+        document.getElementById('home').classList.add('active');
+        document.querySelector('.nav-link[href="#home"]').classList.add('active');
+    }
+
+    // Optional: Scroll to the top of the page when navigating to a new section
+    window.scrollTo(0, 0);
+}
+
+// 3. Event Listeners
+// Listen for changes to the hash (e.g., clicking a nav link, or hitting back/forward in the browser)
+window.addEventListener('hashchange', handleRouting);
+
+// Run the routing logic immediately when the page first loads or refreshes
+window.addEventListener('DOMContentLoaded', handleRouting);
 
 // Wire up nav links
 document.querySelectorAll('.nav-link').forEach(link => {
